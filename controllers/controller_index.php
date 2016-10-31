@@ -8,7 +8,7 @@ class indexController extends Controller {
 	public function home()
 	{
 		
-		echo View::load_view(array('Hello world', '<p>This is an example of the power of Phango!!</p><p>PHP version: ' . phpversion()), 'welcome/home');
+		echo View::load_view(array('Hello world', '<p>This is an example of the power of Phango!!</p><p>PHP version: ' . substr(phpversion(), 0, 1)), 'welcome/home');
 	
 	}
 
