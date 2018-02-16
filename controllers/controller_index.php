@@ -1,26 +1,34 @@
 <?php
 
+namespace PhangoApp\Welcome;
+
 use PhangoApp\PhaRouter\Controller;
 use PhangoApp\PhaView\View;
 
-class indexController extends Controller {
+/*
+* @PhangoController /welcome PhangoApp\Welcome\Home
+*/
 
-	public function home()
-	{
-		
-		echo View::load_view(array('Hello world', '<p>This is an example of the power of Phango!!</p><p>PHP version: ' . substr(phpversion(), 0, 1)), 'welcome/home');
+function Home()
+{
+    
+    echo View::load_view(array('Hello world', '<p>This is an example of the power of Phango!!</p><p>PHP version: ' . substr(phpversion(), 0, 1)), 'welcome/home');
+
+}
+
+//A example with symlink
+
+//The types are string, integer, float. 
+
+/*
+* @PhangoController /welcome/([0-9]+)/([a-zA-Z0-9_\-]+) PhangoApp\Welcome\Page
+*/
 	
-	}
-
-	//A example with symlink
-	
-	public function page($integer, $string)
-	{
+function Page($number, $str)
+{
 		
-		echo View::load_view(array('Example', '<p>First element: '.$integer.'</p><p>Second element: '.$string.'</p>'), 'welcome/home');
+    echo View::load_view(array('Example', '<p>First element: '.$number.'</p><p>Second element: '.$str.'</p>'), 'welcome/home');
 		
-	}
-
 }
 
 ?>
